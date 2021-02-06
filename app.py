@@ -11,10 +11,10 @@ CORS(app)
 def landing():
 
     if request.method == 'GET':
-        return redirect('/home')
+        return redirect('/home.html')
 
 #Home page
-@app.route('/home', methods=['GET', 'POST'])
+@app.route('/home.html', methods=['GET', 'POST'])
 def home():
     
     #GET just displays the page
@@ -25,6 +25,7 @@ def home():
     if request.method == 'POST':
         zip = request.form.get('zipcode')
         session['zip'] = zip
+        return redirect('/cases.html')
         #needs implementing in models
         #get_covid_data(zip)
 
@@ -32,20 +33,20 @@ def home():
     return render_template('home.html')
 
 #Cases page
-@app.route('/cases', methods=['GET'])
+@app.route('/cases.html', methods=['GET'])
 def cases():
 
     #GET just displays the page
     if request.method == 'GET':
         #If the user has not defined a zip, they will be redirected to the home page
         if 'zip' not in session:
-            return redirect('/home')
+            return redirect('/home.html')
 
     #Displays the HTML
     return render_template('cases.html')
 
 #Info page
-@app.route('/info', methods=['GET'])
+@app.route('/info.html', methods=['GET'])
 def info():
 
     #GET just displays the page
@@ -56,14 +57,14 @@ def info():
     return render_template('info.html')
 
 #Vaccine page
-@app.route('/vaccine', methods=['GET'])
+@app.route('/vaccine.html', methods=['GET'])
 def vaccine():
 
     #GET just displays the page
     if request.method == 'GET':
         #If the user has not defined a zip, they will be redirected to the home page
         if 'zip' not in session:
-            return redirect('/home')
+            return redirect('/home.html')
 
     #Displays the HTML
     return render_template('vaccine.html')
