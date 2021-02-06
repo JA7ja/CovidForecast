@@ -1,9 +1,17 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, session
 from flask_cors import CORS
 from models import *
 
 app = Flask(__name__)
+app.secret_key = "HACKBU 2021"
 CORS(app)
+
+#Landing page (reroutes to Home automatically)
+@app.route('/', methods=['GET'])
+def landing():
+
+    if request.method == 'GET':
+        return redirect('/home')
 
 #Home page
 @app.route('/home', methods=['GET', 'POST'])
@@ -16,7 +24,7 @@ def home():
     #POST gives us the zip code of the user
     if request.method == 'POST':
         zip = request.form.get('zipcode')
-
+        session['zip'] = zip
         #needs implementing in models
         #get_covid_data(zip)
 
@@ -29,7 +37,9 @@ def cases():
 
     #GET just displays the page
     if request.method == 'GET':
-        pass
+        #If the user has not defined a zip, they will be redirected to the home page
+        if 'zip' not in session:
+            return redirect('/home')
 
     #Displays the HTML
     return render_template('cases.html')
@@ -51,7 +61,9 @@ def vaccine():
 
     #GET just displays the page
     if request.method == 'GET':
-        pass
+        #If the user has not defined a zip, they will be redirected to the home page
+        if 'zip' not in session:
+            return redirect('/home')
 
     #Displays the HTML
     return render_template('vaccine.html')
