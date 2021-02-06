@@ -7,8 +7,7 @@ class Covid():
     def get(self):
         self.requesturl = self.base_url + self.country + self.status
         self.request = requests.get(self.requesturl)
-        self.response = self.request.json
-        return self.response
+        self.response = self.request.json()
     def response(self):
         print(self.response)
     def __str__(self):
@@ -16,3 +15,4 @@ class Covid():
 
 covid = Covid("France", "cases")
 print(covid.get())
+print(covid.response)
