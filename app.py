@@ -82,6 +82,8 @@ def info():
     #list of strings
     cdc_guidelines = get_cdc_recs()
     
+    print(who_guidelines)
+
     #Displays the HTML
     return render_template('info.html', who=who_guidelines, cdc=cdc_guidelines)
 
