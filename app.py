@@ -59,15 +59,21 @@ def cases():
 
     #int
     total_cases = confirmCases(session['type'], session[session['type']])
+
+    total_deaths = deaths(session['type'], session[session['type']])
+
+    total_recovered = recovered(session['type'], session[session['type']])
     #int
     today_cases = todayCases(session['type'], session[session['type']])
     #int
+    today_death = todayDeaths(session['type'], session[session['type']])
+
     deaths_p_million = deaths_per_million(session['type'], session[session['type']])
     #list of ints (14)
     historical_data = historicalapi(session['type'], session[session['type']], 14)
 
     #Displays the HTML
-    return render_template('cases.html', total_case=total_cases, today_case=today_cases, deaths_per_million=deaths_p_million, historical_data_cases=historical_data)
+    return render_template('cases.html', total_case=total_cases, totalDeaths = total_deaths, totalRecovered = total_recovered, today_case=today_cases, todayDeaths = today_death, deaths_per_million=deaths_p_million, historical_data_cases=historical_data)
 
 #Info page
 @app.route('/info.html', methods=['GET'])

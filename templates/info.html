@@ -4,30 +4,15 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<center><body class="info" style=" background-image: url(static/images/bg1.png);
-background-repeat:no-repeat; background-size: cover;" ></center>
+<body class="info">
 	<div class= "topnav">
 		<a href="home.html">Home</a>
 		<a href="cases.html">Cases</a>
 		<a class="active" href="info.html">Information</a>
 		<a href="vaccine.html">Vaccine</a>
 	</div>
-
-	<h2>CDC GUIDELINES</h2>
-
-	{% for tip in cdc %}
-		<div>{{ tip }}</div>
-	{% endfor %}
-
-	<h2>WHO GUIDELINES</h2>
-		
-	{% for tip in who %}
-		<div>{{ tip }}</div>
-	{% endfor %}
-
 </body>
 <footer>
-	<p>{{ total_cases }} {{ today_cases }} {{ deaths_p_million }} {{ historical_data }} <p>
 	<p>HackBU 2021 Hack</p>
 	<p>Created by: Jack, Peter, Simrohn, Chanchal</p>
 </footer>
