@@ -1,6 +1,6 @@
 from os import path
-import covidapi
-import historicalapi
+from covidapi import Covid, Historical
+
 ROOT = path.dirname(path.relpath((__file__)))
 
 def confirmCases(type, name):
