@@ -80,7 +80,7 @@ def info():
     #list of strings
     who_guidelines = get_who_recs()
     #list of strings
-    cdc_guidelines = get_cdc_guidelines()
+    cdc_guidelines = get_cdc_recs()
     
     #Displays the HTML
     return render_template('info.html', who=who_guidelines, cdc=cdc_guidelines)
