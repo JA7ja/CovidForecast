@@ -79,9 +79,6 @@ class Historical():
                 self.requesturl = self.base_url + "usacounties/" + self.name_of_place + "?lastdays=" + self.days
             self.request = requests.get(self.requesturl)
             self.response = self.request.json()
-            print(self.response)
         except KeyError:
             print("Your Country, County, or State does not exist!")
 
-covid = Covid("state", "New York")
-print(covid)
