@@ -86,6 +86,7 @@ class Historical():
         list_of_dates_and_cases = []
         dates_and_cases = self.response["timeline"]["cases"].copy()
         list_of_dates_and_cases.append(dates_and_cases)
-        return str(list_of_dates_and_cases)
+        for date in list_of_dates_and_cases:
+            return str(date)
 test = Historical("country", "United States", 14)
 print(test)
