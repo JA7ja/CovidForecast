@@ -18,7 +18,7 @@ def landing():
 def home():
 
     error = None
-    
+
     #GET just displays the page
     if request.method == 'GET':
         pass
@@ -67,7 +67,7 @@ def cases():
     historical_data = historicalapi(session['type'], session[session['type']], 14)
 
     #Displays the HTML
-    return render_template('cases.html',total_cases=total_cases, today_cases=today_cases, deaths_p_million=deaths_p_million, historical_data=historical_data)
+    return render_template('cases.html', total_case=total_cases, today_case=today_cases, deaths_per_million=deaths_p_million, historical_data_cases=historical_data)
 
 #Info page
 @app.route('/info.html', methods=['GET'])
@@ -81,7 +81,7 @@ def info():
     who_guidelines = get_who_recs()
     #list of strings
     cdc_guidelines = get_cdc_recs()
-    
+
     #Displays the HTML
     return render_template('info.html', who=who_guidelines, cdc=cdc_guidelines)
 

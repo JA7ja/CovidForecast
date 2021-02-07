@@ -82,4 +82,10 @@ class Historical():
             self.response = self.request.json()
         except KeyError:
             print("Your Country, County, or State does not exist!")
-
+    def __str__(self):
+        list_of_dates_and_cases = []
+        dates_and_cases = self.response["timeline"]["cases"].copy()
+        list_of_dates_and_cases.append(dates_and_cases)
+        return str(list_of_dates_and_cases)
+test = Historical("country", "United States", 14)
+print(test)
