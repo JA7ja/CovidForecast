@@ -81,4 +81,3 @@ class Historical():
             self.response = self.request.json()
         except KeyError:
             print("Your Country, County, or State does not exist!")
-
