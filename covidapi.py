@@ -1,16 +1,15 @@
 import requests
 class Covid():
-    def __init__(self, country, status):
+    def __init__(self, country):
         self.base_url = "https://covid-api.mmediagroup.fr/v1/cases"
         self.country = "?country="+ str(country)
-        self.status = "&status=" + str(status)
         self.confirmed_cases = 0
         self.recovered = 0
         self.deaths = 0
         self.life_expectancy = 0
         self.get()
     def get(self):
-        self.requesturl = self.base_url + self.country + self.status
+        self.requesturl = self.base_url + self.country
         self.request = requests.get(self.requesturl)
         self.response = self.request.json()
         self.confirmed_cases = self.response["All"]["confirmed"]
@@ -23,5 +22,5 @@ class Covid():
 
 
 
-covid = Covid("France", "cases")
+covid = Covid("Germany")
 print(covid)
