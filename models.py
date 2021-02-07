@@ -1,5 +1,6 @@
 from os import path
 from covidapi import Covid, Historical
+from webscrape import get_cdc_guidelines, get_who_guidelines
 
 ROOT = path.dirname(path.relpath((__file__)))
 
@@ -24,3 +25,7 @@ def deaths_per_million(type, name):
 def historicalapi(type, name, days):
     detect_case = Historical(type, name, days)
     return detect_case
+def get_who_recs():
+    return get_who_guidelines()
+def get_cdc_recs():
+    return get_cdc_guidelines()
