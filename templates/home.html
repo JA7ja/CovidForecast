@@ -20,6 +20,10 @@ background-repeat:no-repeat; background-size: cover;" ></center>
 	</div>
 	<h1>Location</h1>
 
+	{% if error %}
+	 <p class=error style="color:#FF0000";><strong>Error:</strong> {{ error }}
+	{% endif %}
+
 	<form name="locationData" action="home.html" method="POST">
 		<div>
 			<select name="country" class="countries" id="countryId">

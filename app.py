@@ -16,6 +16,8 @@ def landing():
 #Home page
 @app.route('/home.html', methods=['GET', 'POST'])
 def home():
+
+    error = None
     
     #GET just displays the page
     if request.method == 'GET':
@@ -24,20 +26,26 @@ def home():
     #POST gives us the country, state, and county
     if request.method == 'POST':
         country = request.form.get('country')
-        print(country)
         state = request.form.get('state')
-        print(state)
         county = request.form.get('county')
-        print(county)
         session['country'] = country
         session['state'] = state
         session['county'] = county
-        return redirect('/cases.html')
-        #needs implementing in models
-        #get_covid_data(zip)
+
+        if country != "":
+            if country != "United States" or state == "":
+                session['type'] = 'country'
+            elif county == "":
+                session['type'] = 'state'
+            else:
+                session['type'] = 'county'
+
+            return redirect('/cases.html')
+        else:
+            error = "Please enter a country."
 
     #Displays the HTML
-    return render_template('home.html')
+    return render_template('home.html', error=error)
 
 #Cases page
 @app.route('/cases.html', methods=['GET'])
@@ -49,8 +57,17 @@ def cases():
         if 'country' not in session:
             return redirect('/home.html')
 
+    #int
+    total_cases = confirmCases(session['type'], session[session['type']])
+    #int
+    today_cases = todayCases(session['type'], session[session['type']])
+    #int
+    deaths_p_million = deaths_per_million(session['type'], session[session['type']])
+    #list of ints (14)
+    historical_data = historicalapi(session['type'], session[session['type']], 14)
+
     #Displays the HTML
-    return render_template('cases.html')
+    return render_template('cases.html',total_cases=total_cases, today_cases=today_cases, deaths_p_million=deaths_p_million, historical_data=historical_data)
 
 #Info page
 @app.route('/info.html', methods=['GET'])
@@ -60,8 +77,13 @@ def info():
     if request.method == 'GET':
         pass
 
+    #list of strings
+    who_guidelines = get_who_recs()
+    #list of strings
+    cdc_guidelines = get_cdc_recs()
+    
     #Displays the HTML
-    return render_template('info.html')
+    return render_template('info.html', who=who_guidelines, cdc=cdc_guidelines)
 
 #Vaccine page
 @app.route('/vaccine.html', methods=['GET'])
