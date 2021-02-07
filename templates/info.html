@@ -11,6 +11,24 @@
 		<a class="active" href="info.html">Information</a>
 		<a href="vaccine.html">Vaccine</a>
 	</div>
+<<<<<<< HEAD
+=======
+
+	<h2>CDC GUIDELINES</h2>
+
+	{% for tip in cdc %}
+		<div>{{ tip }}</div>
+	{% endfor %}
+
+	<h2>WHO GUIDELINES</h2>
+		
+	{% for tip in who %}
+		<div>{{ tip }}</div>
+	{% endfor %}
+
+
+
+>>>>>>> a2def94c3246d5e54fefa497bd19adbcf3c1de13
 </body>
 <footer>
 	<p>{{ total_cases }} {{ today_cases }} {{ deaths_p_million }} {{ historical_data }} <p>

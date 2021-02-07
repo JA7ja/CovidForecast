@@ -18,6 +18,7 @@ class Covid():
             self.active_cases = 0
             self.deaths = 0
             self.life_expectancy = 0
+            self.deaths_per_million = 0
             self.get()
         except AttributeError:
             print("Your Country, County, or State does not exist!")
