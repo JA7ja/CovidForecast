@@ -21,10 +21,17 @@ def home():
     if request.method == 'GET':
         pass
 
-    #POST gives us the zip code of the user
+    #POST gives us the country, state, and county
     if request.method == 'POST':
-        zip = request.form.get('zipcode')
-        session['zip'] = zip
+        country = request.form.get('country')
+        print(country)
+        state = request.form.get('state')
+        print(state)
+        county = request.form.get('county')
+        print(county)
+        session['country'] = country
+        session['state'] = state
+        session['county'] = county
         return redirect('/cases.html')
         #needs implementing in models
         #get_covid_data(zip)
@@ -39,7 +46,7 @@ def cases():
     #GET just displays the page
     if request.method == 'GET':
         #If the user has not defined a zip, they will be redirected to the home page
-        if 'zip' not in session:
+        if 'country' not in session:
             return redirect('/home.html')
 
     #Displays the HTML
@@ -63,7 +70,7 @@ def vaccine():
     #GET just displays the page
     if request.method == 'GET':
         #If the user has not defined a zip, they will be redirected to the home page
-        if 'zip' not in session:
+        if 'country' not in session:
             return redirect('/home.html')
 
     #Displays the HTML
