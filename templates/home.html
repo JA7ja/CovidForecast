@@ -8,9 +8,9 @@
 	<script src="http://geodata.solutions/includes/countrystatecity.js"></script>
 </head>
 
-<body class="home" style=" background-image: url(static/images/homebg.png);
-background-repeat:no-repeat; background-size: cover;" >
-   
+<body class="home" style="  background-image: url(static/images/homebg.png);
+                            background-repeat:no-repeat;
+                            background-size: cover;" >
 	
 	<div class= "topnav">
 		<a class="active" href="home.html">Home</a>
@@ -18,7 +18,17 @@ background-repeat:no-repeat; background-size: cover;" >
 		<a href="info.html">Information</a>
 		<a href="vaccine.html">Vaccine</a>
 	</div>
-	<h1>Location</h1>
+
+	<h1 align=justify style="background-color:#ffffff;
+                            border-radius:8px;
+                            font-size:32px;
+                            padding:30px;
+                            margin:10px;">Please enter your location information below.</h1>
+    <h2 align=justify style="background-color:#ffffff;
+                            border-radius:4px;
+                            font-size:16px;
+                            padding:15px;
+                            margin:5px;">Once you hit "submit" you will be redirected to information about the cases in your area.</h2>
 
 	{% if error %}
 	 <p class=error style="color:#FF0000";><strong>Error:</strong> {{ error }}
@@ -51,7 +61,11 @@ background-repeat:no-repeat; background-size: cover;" >
 </body>
 
 
-<footer>
+<footer style="
+	position: fixed;
+	bottom: 0;
+	color: gray;
+	text-shadow: 0 0 black;">
 	<p>HackBU 2021 Hack</p>
 	<p>Created by: Jack, Peter, Simrohn, Chanchal</p>
 </footer>
