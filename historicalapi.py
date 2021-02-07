@@ -21,4 +21,4 @@ class Historical():
         except KeyError:
             print("Your Country, County, or State does not exist!")
 
-covid = Covid("state", "new york", 14)
+covid = Historical("state", "new york", 14)
