@@ -88,5 +88,3 @@ class Historical():
         list_of_dates_and_cases.append(dates_and_cases)
         for date in list_of_dates_and_cases:
             return str(date)
-test = Historical("country", "United States", 14)
-print(test)

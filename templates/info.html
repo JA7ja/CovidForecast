@@ -11,6 +11,17 @@
 		<a class="active" href="info.html">Information</a>
 		<a href="vaccine.html">Vaccine</a>
 	</div>
+	<h2>CDC GUIDELINES</h2>
+
+	{% for tip in cdc %}
+		<div>{{ tip }}</div>
+	{% endfor %}
+
+	<h2>WHO GUIDELINES</h2>
+
+	{% for tip in who %}
+		<div>{{ tip }}</div>
+	{% endfor %}
 </body>
 <footer>
 	<p>HackBU 2021 Hack</p>
