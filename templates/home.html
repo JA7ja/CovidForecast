@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+	<script src="http://geodata.solutions/includes/countrystatecity.js"></script>
 </head>
+
 <body class="home">
 	<div class= "topnav">
 		<a class="active" href="home.html">Home</a>
@@ -12,7 +16,21 @@
 		<a href="vaccine.html">Vaccine</a>
 	</div>
 	<h1>Location</h1>
-	<form>
+
+	<div>
+		<select name="country" class="countries" id="countryId">
+	    <option value="">Select Country</option>
+		</select>
+		<select name="state" class="states" id="stateId">
+		    <option value="">Select State</option>
+		</select>
+		<select name="city" class="cities" id="cityId">
+		    <option value="">Select City</option>
+		</select>
+		
+	</div>
+
+	<!-- <form>
 		<p>Country:</p>
 		<select id="country" name="country">
 		   <option value="Afganistan">Afghanistan</option>
@@ -262,14 +280,17 @@
 		   <option value="Zambia">Zambia</option>
 		   <option value="Zimbabwe">Zimbabwe</option>
 		</select>
-	</form>
+	</form> -->
 	<form name="locationData" action="home.html" method="POST">
 		<p>Zip Code:</p>
 		<input id="zip" name="zip" placeholder="ZIPCODE" type="text" pattern="[0-9]*">
 	</form>
 </body>
+
 <footer>
 	<p>HackBU 2021 Hack</p>
 	<p>Created by: Jack, Peter, Simrohn, Chanchal</p>
 </footer>
+
+
 </html>
