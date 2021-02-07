@@ -81,11 +81,6 @@ def info():
     who_guidelines = get_who_recs()
     #list of strings
     cdc_guidelines = get_cdc_recs()
-<<<<<<< HEAD
-=======
-    
-    print(who_guidelines)
->>>>>>> a2def94c3246d5e54fefa497bd19adbcf3c1de13
 
     #Displays the HTML
     return render_template('info.html', who=who_guidelines, cdc=cdc_guidelines)
